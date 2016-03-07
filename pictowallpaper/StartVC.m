@@ -6,14 +6,13 @@
 //  Copyright © 2016年 Nemocdz. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "StartVC.h"
 
-@interface ViewController ()
+@interface StartVC ()
 
 @end
 
-@implementation ViewController
-
+@implementation StartVC
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -22,6 +21,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)openCamera:(id)sender {
+}
+
+- (IBAction)openGallery:(id)sender {
 }
 
 @end
