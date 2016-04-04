@@ -63,6 +63,9 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0kK-kf-5eb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Apps" translatesAutoresizingMaskIntoConstraints="NO" id="twH-G5-89k">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="增加状态栏黑边" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKf-aa-pMi">
                                 <rect key="frame" x="139" y="0.0" width="98" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -71,6 +74,20 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="增加Dock栏黑边" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTy-mL-ssF">
                                 <rect key="frame" x="140" y="638" width="104" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz4-XL-4YO" userLabel="预览">
+                                <rect key="frame" x="205" y="470" width="50" height="50"/>
+                                <state key="normal" backgroundImage="预览"/>
+                                <state key="selected" backgroundImage="取消预览"/>
+                                <connections>
+                                    <action selector="preview:" destination="QMs-sc-ue0" eventType="touchUpInside" id="JD3-hP-F6c"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="预览" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ao8-fd-VPH">
+                                <rect key="frame" x="216" y="520" width="28" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -106,9 +123,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aa-AO-U3b" userLabel="下一步">
                                 <rect key="frame" x="305" y="282" width="50" height="50"/>
-                                <state key="normal" backgroundImage="下一步"/>
+                                <state key="normal" backgroundImage="完成"/>
                                 <connections>
-                                    <action selector="next:" destination="QMs-sc-ue0" eventType="touchUpInside" id="QbC-Ab-Nhl"/>
+                                    <action selector="finish:" destination="QMs-sc-ue0" eventType="touchUpInside" id="TaP-1M-eSo"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="上下拖动调整裁剪范围" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yD-xy-bKh">
@@ -117,14 +134,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="毛玻璃效果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWu-bA-v1c">
-                                <rect key="frame" x="138" y="522" width="98" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="毛玻璃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWu-bA-v1c">
+                                <rect key="frame" x="124" y="520" width="42" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjS-aG-n8D" userLabel="毛玻璃">
-                                <rect key="frame" x="163" y="470" width="50" height="50"/>
+                                <rect key="frame" x="120" y="470" width="50" height="50"/>
                                 <state key="normal" backgroundImage="毛玻璃"/>
                                 <state key="selected" backgroundImage="取消毛玻璃"/>
                                 <connections>
@@ -137,12 +154,17 @@
                     <navigationItem key="navigationItem" id="Whi-Eg-Brk"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="apps" destination="twH-G5-89k" id="w6z-x7-0I3"/>
                         <outlet property="backgroundBlurBtn" destination="rjS-aG-n8D" id="0K5-XC-PAX"/>
                         <outlet property="blackDock" destination="7kW-Nk-IBc" id="5dD-Pl-0D7"/>
                         <outlet property="blackDockBtn" destination="Umn-n3-brd" id="UBJ-iJ-JBh"/>
                         <outlet property="blackStatusBar" destination="N2D-o9-uKr" id="XXJ-wX-kNW"/>
                         <outlet property="blackStatusBarBtn" destination="hAD-C6-vAe" id="g82-Uz-fjE"/>
+                        <outlet property="dockLabel" destination="DTy-mL-ssF" id="Jr0-h7-26v"/>
+                        <outlet property="helpLabel" destination="7yD-xy-bKh" id="jcf-fK-AgG"/>
+                        <outlet property="previewBtn" destination="sz4-XL-4YO" id="JDF-Pw-cwQ"/>
                         <outlet property="scrollView" destination="0kK-kf-5eb" id="WSi-F2-O0O"/>
+                        <outlet property="statusBarLabel" destination="QKf-aa-pMi" id="PCX-G2-kOh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKQ-ue-Eup" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,12 +173,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Apps" width="375" height="662"/>
         <image name="Dock栏黑边" width="375" height="96"/>
         <image name="PKTW" width="122" height="39"/>
         <image name="上一步" width="50" height="50"/>
-        <image name="下一步" width="50" height="50"/>
         <image name="取消毛玻璃" width="50" height="50"/>
+        <image name="取消预览" width="50" height="50"/>
         <image name="图标" width="196" height="196"/>
+        <image name="完成" width="50" height="50"/>
         <image name="展开Dock黑边" width="50" height="50"/>
         <image name="展开状态栏黑边" width="50" height="50"/>
         <image name="拍照按钮" width="80" height="80"/>
@@ -166,5 +190,6 @@
         <image name="状态栏黑边" width="375" height="20"/>
         <image name="相册按钮" width="80" height="80"/>
         <image name="背景" width="375" height="667"/>
+        <image name="预览" width="50" height="50"/>
     </resources>
 </document>

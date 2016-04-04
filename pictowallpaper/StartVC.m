@@ -26,6 +26,7 @@
 
 }
 
+//状态栏变白
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
@@ -34,7 +35,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//相机按钮
 - (IBAction)openCamera:(id)sender {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc]init];
@@ -46,7 +47,7 @@
         NSLog(@"设备没有摄像头");
     }
 }
-
+//相册按钮
 - (IBAction)openGallery:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];
     picker.delegate = self;
@@ -54,7 +55,7 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
-
+//获取照片，跳转VC
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info{
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     if(picker.sourceType == UIImagePickerControllerSourceTypeCamera){
@@ -66,7 +67,7 @@
     [picker presentViewController:receive animated:YES completion:nil];
     NSLog(@"获取照片");
 }
-
+//保存照片
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
     if(!error){
         NSLog(@"照片保存成功");
