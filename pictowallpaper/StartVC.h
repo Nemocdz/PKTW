@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StartVC : UIViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface StartVC : UIViewController
 
 
 @end
