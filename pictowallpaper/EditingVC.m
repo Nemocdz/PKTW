@@ -10,17 +10,31 @@
 
 
 @interface EditingVC ()
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+- (IBAction)showBlackStatusBar:(id)sender;
+- (IBAction)showBlackDock:(id)sender;
+- (IBAction)back:(id)sender;
+- (IBAction)next:(id)sender;
+- (IBAction)backgroundBlur:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIImageView *blackStatusBar;
+@property (strong, nonatomic) IBOutlet UIImageView *blackDock;
+@property (strong, nonatomic) IBOutlet UIButton *blackStatusBarBtn;
+@property (strong, nonatomic) IBOutlet UIButton *blackDockBtn;
+@property (strong, nonatomic) IBOutlet UIButton *backgroundBlurBtn;
 
 @end
 
 @implementation EditingVC
+- (BOOL)prefersStatusBarHidden{
+    return YES; // 返回NO表示要显示，返回YES将hiden
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
-    _imageView.image = _originalImage;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,4 +52,26 @@
 }
 */
 
+- (IBAction)showBlackStatusBar:(id)sender {
+    self.blackStatusBar.hidden = !self.blackStatusBar.hidden;
+    self.blackStatusBarBtn.selected = !self.blackStatusBarBtn.selected;
+}
+
+- (IBAction)showBlackDock:(id)sender {
+    self.blackDock.hidden = !self.blackDock.hidden;
+    self.blackDockBtn.selected = !self.blackDockBtn.selected;
+}
+
+- (IBAction)back:(id)sender {
+    
+}
+
+- (IBAction)next:(id)sender {
+    
+}
+
+- (IBAction)backgroundBlur:(id)sender {
+    self.backgroundBlurBtn.selected = !self.backgroundBlurBtn.selected;
+    
+}
 @end

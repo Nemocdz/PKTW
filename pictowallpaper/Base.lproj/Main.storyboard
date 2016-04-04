@@ -20,14 +20,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="背景" translatesAutoresizingMaskIntoConstraints="NO" id="bdH-d6-WmA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K14-2B-yx9">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K14-2B-yx9" userLabel="拍照">
                                 <rect key="frame" x="73" y="468" width="80" height="80"/>
                                 <state key="normal" backgroundImage="拍照按钮"/>
                                 <connections>
                                     <action selector="openCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gXd-eb-dxH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-2J-Ysu">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-2J-Ysu" userLabel="相册">
                                 <rect key="frame" x="222" y="468" width="80" height="80"/>
                                 <state key="normal" backgroundImage="相册按钮"/>
                                 <connections>
@@ -60,16 +60,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FsX-At-mxX">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0kK-kf-5eb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="增加状态栏黑边" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKf-aa-pMi">
+                                <rect key="frame" x="139" y="0.0" width="98" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="增加Dock栏黑边" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTy-mL-ssF">
+                                <rect key="frame" x="140" y="638" width="104" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="状态栏黑边" translatesAutoresizingMaskIntoConstraints="NO" id="N2D-o9-uKr" userLabel="状态栏黑边">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                             </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Dock栏黑边" translatesAutoresizingMaskIntoConstraints="NO" id="7kW-Nk-IBc">
+                                <rect key="frame" x="0.0" y="571" width="375" height="96"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAD-C6-vAe" userLabel="状态栏黑边">
+                                <rect key="frame" x="163" y="32" width="50" height="50"/>
+                                <state key="normal" backgroundImage="展开状态栏黑边"/>
+                                <state key="selected" backgroundImage="收起状态栏黑边"/>
+                                <connections>
+                                    <action selector="showBlackStatusBar:" destination="QMs-sc-ue0" eventType="touchUpInside" id="zhd-gn-tuw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umn-n3-brd" userLabel="Dock栏黑边">
+                                <rect key="frame" x="163" y="586" width="50" height="50"/>
+                                <state key="normal" backgroundImage="展开Dock黑边"/>
+                                <state key="selected" backgroundImage="收起Dock栏黑边"/>
+                                <connections>
+                                    <action selector="showBlackDock:" destination="QMs-sc-ue0" eventType="touchUpInside" id="y0X-CJ-TOR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3b-iF-8uN" userLabel="上一步">
+                                <rect key="frame" x="20" y="284" width="50" height="50"/>
+                                <state key="normal" backgroundImage="上一步"/>
+                                <connections>
+                                    <action selector="back:" destination="QMs-sc-ue0" eventType="touchUpInside" id="yAT-t0-hfC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aa-AO-U3b" userLabel="下一步">
+                                <rect key="frame" x="305" y="282" width="50" height="50"/>
+                                <state key="normal" backgroundImage="下一步"/>
+                                <connections>
+                                    <action selector="next:" destination="QMs-sc-ue0" eventType="touchUpInside" id="QbC-Ab-Nhl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="上下拖动调整裁剪范围" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yD-xy-bKh">
+                                <rect key="frame" x="121" y="294" width="140" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="毛玻璃效果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWu-bA-v1c">
+                                <rect key="frame" x="138" y="522" width="98" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjS-aG-n8D" userLabel="毛玻璃">
+                                <rect key="frame" x="163" y="470" width="50" height="50"/>
+                                <state key="normal" backgroundImage="毛玻璃"/>
+                                <state key="selected" backgroundImage="取消毛玻璃"/>
+                                <connections>
+                                    <action selector="backgroundBlur:" destination="QMs-sc-ue0" eventType="touchUpInside" id="uV7-cq-qGo"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Whi-Eg-Brk"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="imageView" destination="FsX-At-mxX" id="7m5-PF-JWF"/>
+                        <outlet property="backgroundBlurBtn" destination="rjS-aG-n8D" id="0K5-XC-PAX"/>
+                        <outlet property="blackDock" destination="7kW-Nk-IBc" id="5dD-Pl-0D7"/>
+                        <outlet property="blackDockBtn" destination="Umn-n3-brd" id="UBJ-iJ-JBh"/>
+                        <outlet property="blackStatusBar" destination="N2D-o9-uKr" id="XXJ-wX-kNW"/>
+                        <outlet property="blackStatusBarBtn" destination="hAD-C6-vAe" id="g82-Uz-fjE"/>
+                        <outlet property="scrollView" destination="0kK-kf-5eb" id="WSi-F2-O0O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKQ-ue-Eup" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -78,9 +151,19 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Dock栏黑边" width="375" height="96"/>
         <image name="PKTW" width="122" height="39"/>
+        <image name="上一步" width="50" height="50"/>
+        <image name="下一步" width="50" height="50"/>
+        <image name="取消毛玻璃" width="50" height="50"/>
         <image name="图标" width="196" height="196"/>
+        <image name="展开Dock黑边" width="50" height="50"/>
+        <image name="展开状态栏黑边" width="50" height="50"/>
         <image name="拍照按钮" width="80" height="80"/>
+        <image name="收起Dock栏黑边" width="50" height="50"/>
+        <image name="收起状态栏黑边" width="50" height="50"/>
+        <image name="毛玻璃" width="50" height="50"/>
+        <image name="状态栏黑边" width="375" height="20"/>
         <image name="相册按钮" width="80" height="80"/>
         <image name="背景" width="375" height="667"/>
     </resources>
