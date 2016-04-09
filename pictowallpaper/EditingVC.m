@@ -39,6 +39,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIView *blackView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, 375, 785)];
+    blackView.backgroundColor =  [UIColor blackColor];
+    [self.scrollView addSubview:blackView];
+    self.scrollView.contentSize = blackView.bounds.size;
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0,0,375,500)];
+    imageView.image = self.originalImage;
+    [blackView addSubview:imageView];
     // Do any additional setup after loading the view.
 
 }

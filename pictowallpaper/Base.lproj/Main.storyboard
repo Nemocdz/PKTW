@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--StartVC-->
@@ -63,9 +65,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0kK-kf-5eb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Apps" translatesAutoresizingMaskIntoConstraints="NO" id="twH-G5-89k">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="增加状态栏黑边" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKf-aa-pMi">
                                 <rect key="frame" x="139" y="0.0" width="98" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -92,21 +91,33 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="状态栏黑边" translatesAutoresizingMaskIntoConstraints="NO" id="N2D-o9-uKr" userLabel="状态栏黑边">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="状态栏黑边" translatesAutoresizingMaskIntoConstraints="NO" id="N2D-o9-uKr" userLabel="Black Status">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="N2D-o9-uKr" secondAttribute="height" multiplier="75:4" id="Muw-Tn-taW"/>
+                                </constraints>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Dock栏黑边" translatesAutoresizingMaskIntoConstraints="NO" id="7kW-Nk-IBc">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dock栏黑边" translatesAutoresizingMaskIntoConstraints="NO" id="7kW-Nk-IBc">
                                 <rect key="frame" x="0.0" y="571" width="375" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7kW-Nk-IBc" secondAttribute="height" multiplier="125:32" id="xP4-Bc-7Fh"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAD-C6-vAe" userLabel="状态栏黑边">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apps" translatesAutoresizingMaskIntoConstraints="NO" id="twH-G5-89k">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAD-C6-vAe" userLabel="状态栏黑边">
                                 <rect key="frame" x="163" y="32" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hAD-C6-vAe" secondAttribute="height" multiplier="1:1" id="Kfd-TA-lQA"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="展开状态栏黑边"/>
                                 <state key="selected" backgroundImage="收起状态栏黑边"/>
                                 <connections>
                                     <action selector="showBlackStatusBar:" destination="QMs-sc-ue0" eventType="touchUpInside" id="zhd-gn-tuw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umn-n3-brd" userLabel="Dock栏黑边">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umn-n3-brd" userLabel="Dock栏黑边">
                                 <rect key="frame" x="163" y="586" width="50" height="50"/>
                                 <state key="normal" backgroundImage="展开Dock黑边"/>
                                 <state key="selected" backgroundImage="收起Dock栏黑边"/>
@@ -150,6 +161,22 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Umn-n3-brd" firstAttribute="centerX" secondItem="E6z-Qt-fBJ" secondAttribute="centerX" id="1P1-jN-Dow"/>
+                            <constraint firstAttribute="trailing" secondItem="N2D-o9-uKr" secondAttribute="trailing" id="73A-q1-nBO"/>
+                            <constraint firstItem="twH-G5-89k" firstAttribute="leading" secondItem="E6z-Qt-fBJ" secondAttribute="leading" id="Gth-zo-QG7"/>
+                            <constraint firstItem="twH-G5-89k" firstAttribute="top" secondItem="E6z-Qt-fBJ" secondAttribute="top" id="IZI-xb-c8i"/>
+                            <constraint firstItem="hAD-C6-vAe" firstAttribute="top" secondItem="E6z-Qt-fBJ" secondAttribute="bottom" multiplier="32/667" id="LGD-Po-FRj"/>
+                            <constraint firstItem="7kW-Nk-IBc" firstAttribute="leading" secondItem="E6z-Qt-fBJ" secondAttribute="leading" id="Ox3-N5-ttp"/>
+                            <constraint firstItem="xSG-2m-npL" firstAttribute="top" secondItem="7kW-Nk-IBc" secondAttribute="bottom" id="WZO-dc-raO"/>
+                            <constraint firstAttribute="trailing" secondItem="7kW-Nk-IBc" secondAttribute="trailing" id="Zli-KC-Awo"/>
+                            <constraint firstItem="hAD-C6-vAe" firstAttribute="centerX" secondItem="E6z-Qt-fBJ" secondAttribute="centerX" id="a57-O7-1iW"/>
+                            <constraint firstItem="xSG-2m-npL" firstAttribute="top" secondItem="twH-G5-89k" secondAttribute="bottom" id="bmI-pn-wHu"/>
+                            <constraint firstItem="N2D-o9-uKr" firstAttribute="top" secondItem="E6z-Qt-fBJ" secondAttribute="top" id="rYA-Fa-yTZ"/>
+                            <constraint firstItem="Umn-n3-brd" firstAttribute="top" secondItem="E6z-Qt-fBJ" secondAttribute="bottom" multiplier="586/667" id="rc6-gg-ru5"/>
+                            <constraint firstItem="N2D-o9-uKr" firstAttribute="leading" secondItem="E6z-Qt-fBJ" secondAttribute="leading" id="wqS-Gj-fas"/>
+                            <constraint firstAttribute="trailing" secondItem="twH-G5-89k" secondAttribute="trailing" id="zaR-1q-04g"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Whi-Eg-Brk"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -173,7 +200,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Apps" width="375" height="662"/>
+        <image name="Apps" width="364" height="657"/>
         <image name="Dock栏黑边" width="375" height="96"/>
         <image name="PKTW" width="122" height="39"/>
         <image name="上一步" width="50" height="50"/>
