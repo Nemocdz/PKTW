@@ -18,8 +18,8 @@
 - (IBAction)backgroundBlur:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet UIImageView *blackStatusBar;
-@property (strong, nonatomic) IBOutlet UIImageView *blackDock;
+@property (strong, nonatomic) IBOutlet UIView *blackStatusBar;
+@property (strong, nonatomic) IBOutlet UIView *blackDock;
 @property (strong, nonatomic) IBOutlet UIButton *blackStatusBarBtn;
 @property (strong, nonatomic) IBOutlet UIButton *blackDockBtn;
 @property (strong, nonatomic) IBOutlet UIButton *backgroundBlurBtn;
