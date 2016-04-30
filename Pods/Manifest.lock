@@ -1,10 +1,10 @@
 PODS:
-  - FSMediaPicker (0.0.2)
+  - SDAutoLayout (1.52)
 
 DEPENDENCIES:
-  - FSMediaPicker
+  - SDAutoLayout (~> 1.51)
 
 SPEC CHECKSUMS:
-  FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
+  SDAutoLayout: 7c92e8f149059e80010507e471e1b4b6c85a62bb
 
 COCOAPODS: 0.39.0

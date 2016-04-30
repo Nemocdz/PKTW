@@ -7,7 +7,7 @@
 //
 
 #import "EditingVC.h"
-
+#import "UIView+SDAutoLayout.h"
 
 @interface EditingVC ()
 - (IBAction)showBlackStatusBar:(id)sender;
@@ -28,6 +28,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *dockLabel;
 @property (strong, nonatomic) IBOutlet UILabel *helpLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *apps;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *contentViewHight;
+@property (strong, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -39,20 +41,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIView *blackView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, 375, 785)];
-    blackView.backgroundColor =  [UIColor blackColor];
-    [self.scrollView addSubview:blackView];
-    self.scrollView.contentSize = blackView.bounds.size;
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0,0,375,500)];
-    imageView.image = self.originalImage;
-    [blackView addSubview:imageView];
-    // Do any additional setup after loading the view.
+}
 
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self relayoutAndSetImage];
+}
+
+
+- (BOOL)automaticallyAdjustsScrollViewInsets{
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//重新计算滑动范围和加入图片
+- (void)relayoutAndSetImage{
+    CGSize imageSize = self.originalImage.size;
+    CGSize contentViewSize = self.contentView.size;
+    
+    CGFloat imgaeHeight = imageSize.height / imageSize.width * contentViewSize.width;
+    CGFloat blackSpace = (contentViewSize.height - imgaeHeight);
+    CGFloat newHeight = blackSpace * 2 + imgaeHeight;
+    
+    self.scrollView.contentOffset = CGPointMake(0,blackSpace/2);
+    self.scrollView.showsVerticalScrollIndicator = NO;
+ //   self.scrollView.bounces = NO;
+    self.contentViewHight.constant = newHeight;
+
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:self.originalImage];
+    [self.contentView addSubview:imageView];
+    imageView.sd_layout.centerXIs(self.contentView.frame.size.width / 2)
+                       .yIs((blackSpace))
+                       .widthIs(self.contentView.frame.size.width)
+                       .autoHeightRatio(imageSize.height/imageSize.width);
+    
+    [self updateViewConstraints];
+    [self.contentView setNeedsLayout];
+    [self.contentView layoutIfNeeded];
 }
 
 
@@ -61,17 +91,35 @@
     self.blackStatusBar.hidden = !self.blackStatusBar.hidden;
     self.blackStatusBarBtn.selected = !self.blackStatusBarBtn.selected;
 }
+
 //显示隐藏Dock栏黑边
 - (IBAction)showBlackDock:(id)sender {
     self.blackDock.hidden = !self.blackDock.hidden;
     self.blackDockBtn.selected = !self.blackDockBtn.selected;
 }
+
 //返回
 - (IBAction)back:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"要返回吗?" message:@"如果返回，则应用到当前图片的修改的所有未保存更改都会丢失。" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"确定按钮被点击");
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    UIAlertAction *canselAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:okAction];
+    [alert addAction:canselAction];
+
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
 }
+
 //完成
 - (IBAction)finish:(id)sender {
+
 }
+
 //预览
 - (IBAction)preview:(id)sender {
     self.previewBtn.selected = !self.previewBtn.selected;
@@ -82,6 +130,7 @@
     self.helpLabel.hidden = !self.helpLabel.hidden;
     self.apps.hidden = !self.apps.hidden;
 }
+
 //毛玻璃效果
 - (IBAction)backgroundBlur:(id)sender {
     self.backgroundBlurBtn.selected = !self.backgroundBlurBtn.selected;
