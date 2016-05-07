@@ -7,7 +7,7 @@
 //
 
 #import "EditingVC.h"
-#import "UIView+SDAutoLayout.h"
+#import "FXBlurView.h"
 
 @interface EditingVC ()
 - (IBAction)showBlackStatusBar:(id)sender;
@@ -30,6 +30,10 @@
 @property (strong, nonatomic) IBOutlet UIImageView *apps;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *contentViewHight;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *imageViewAspect;
+@property (strong, nonatomic) IBOutlet FXBlurView *blurView;
 
 @end
 
@@ -47,6 +51,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self relayoutAndSetImage];
+
 }
 
 
@@ -62,7 +67,7 @@
 //重新计算滑动范围和加入图片
 - (void)relayoutAndSetImage{
     CGSize imageSize = self.originalImage.size;
-    CGSize contentViewSize = self.contentView.size;
+    CGSize contentViewSize = self.contentView.frame.size;
     
     CGFloat imgaeHeight = imageSize.height / imageSize.width * contentViewSize.width;
     CGFloat blackSpace = (contentViewSize.height - imgaeHeight);
@@ -72,17 +77,15 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
  //   self.scrollView.bounces = NO;
     self.contentViewHight.constant = newHeight;
+    self.imageViewAspect.constant = imageSize.height/imageSize.width;
 
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:self.originalImage];
-    [self.contentView addSubview:imageView];
-    imageView.sd_layout.centerXIs(self.contentView.frame.size.width / 2)
-                       .yIs((blackSpace))
-                       .widthIs(self.contentView.frame.size.width)
-                       .autoHeightRatio(imageSize.height/imageSize.width);
     
     [self updateViewConstraints];
     [self.contentView setNeedsLayout];
+    [self.imageView setNeedsLayout];
     [self.contentView layoutIfNeeded];
+    [self.imageView layoutIfNeeded];
+    [self.imageView setImage:self.originalImage];
 }
 
 
@@ -134,5 +137,9 @@
 //毛玻璃效果
 - (IBAction)backgroundBlur:(id)sender {
     self.backgroundBlurBtn.selected = !self.backgroundBlurBtn.selected;
+    self.blurView.tintColor = [UIColor clearColor];
+    self.blurView.blurRadius = 10.0f;
+    self.blurView.hidden = !self.blurView.hidden;
+
 }
 @end

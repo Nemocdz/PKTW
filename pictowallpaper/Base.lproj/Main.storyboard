@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -174,18 +174,69 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33N-cd-ON9" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aZd-KO-Wqr">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="aZd-KO-Wqr" secondAttribute="height" multiplier="15:8" id="Fwv-lD-ivs"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Fwv-lD-ivs"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="Fwv-lD-ivs"/>
+                                                    </mask>
+                                                </variation>
+                                            </imageView>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jT0-A6-PGm" customClass="FXBlurView">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="jT0-A6-PGm" firstAttribute="top" secondItem="33N-cd-ON9" secondAttribute="top" id="BG1-IF-UeA"/>
+                                            <constraint firstItem="jT0-A6-PGm" firstAttribute="leading" secondItem="33N-cd-ON9" secondAttribute="leading" id="D1Z-6G-YQd"/>
+                                            <constraint firstItem="aZd-KO-Wqr" firstAttribute="centerY" secondItem="33N-cd-ON9" secondAttribute="centerY" id="Gb2-mq-GEq"/>
+                                            <constraint firstAttribute="bottom" secondItem="jT0-A6-PGm" secondAttribute="bottom" id="YAc-3z-aqm"/>
+                                            <constraint firstItem="aZd-KO-Wqr" firstAttribute="centerX" secondItem="33N-cd-ON9" secondAttribute="centerX" id="af8-id-9IX"/>
+                                            <constraint firstItem="aZd-KO-Wqr" firstAttribute="width" secondItem="33N-cd-ON9" secondAttribute="width" id="bT7-GM-Bpd"/>
+                                            <constraint firstAttribute="trailing" secondItem="jT0-A6-PGm" secondAttribute="trailing" id="gv2-Ir-MNx"/>
                                             <constraint firstAttribute="height" priority="999" constant="666" id="x3t-3o-CdO"/>
                                         </constraints>
                                         <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="aZd-KO-Wqr"/>
+                                                <exclude reference="jT0-A6-PGm"/>
+                                            </mask>
                                             <mask key="constraints">
                                                 <exclude reference="x3t-3o-CdO"/>
+                                                <exclude reference="Gb2-mq-GEq"/>
+                                                <exclude reference="af8-id-9IX"/>
+                                                <exclude reference="bT7-GM-Bpd"/>
+                                                <exclude reference="BG1-IF-UeA"/>
+                                                <exclude reference="D1Z-6G-YQd"/>
+                                                <exclude reference="YAc-3z-aqm"/>
+                                                <exclude reference="gv2-Ir-MNx"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="aZd-KO-Wqr"/>
+                                                <include reference="jT0-A6-PGm"/>
+                                            </mask>
                                             <mask key="constraints">
                                                 <include reference="x3t-3o-CdO"/>
+                                                <include reference="Gb2-mq-GEq"/>
+                                                <include reference="af8-id-9IX"/>
+                                                <include reference="bT7-GM-Bpd"/>
+                                                <include reference="BG1-IF-UeA"/>
+                                                <include reference="D1Z-6G-YQd"/>
+                                                <include reference="YAc-3z-aqm"/>
+                                                <include reference="gv2-Ir-MNx"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -562,10 +613,13 @@
                         <outlet property="blackDockBtn" destination="Umn-n3-brd" id="UBJ-iJ-JBh"/>
                         <outlet property="blackStatusBar" destination="kdd-JD-CXp" id="QsI-pK-eB2"/>
                         <outlet property="blackStatusBarBtn" destination="hAD-C6-vAe" id="g82-Uz-fjE"/>
+                        <outlet property="blurView" destination="jT0-A6-PGm" id="clM-nL-gUd"/>
                         <outlet property="contentView" destination="33N-cd-ON9" id="1Zf-zl-5vG"/>
                         <outlet property="contentViewHight" destination="x3t-3o-CdO" id="jjJ-wR-fbZ"/>
                         <outlet property="dockLabel" destination="DTy-mL-ssF" id="Jr0-h7-26v"/>
                         <outlet property="helpLabel" destination="7yD-xy-bKh" id="jcf-fK-AgG"/>
+                        <outlet property="imageView" destination="aZd-KO-Wqr" id="Jpo-8i-Ip3"/>
+                        <outlet property="imageViewAspect" destination="Fwv-lD-ivs" id="fia-NT-omO"/>
                         <outlet property="previewBtn" destination="sz4-XL-4YO" id="JDF-Pw-cwQ"/>
                         <outlet property="scrollView" destination="0kK-kf-5eb" id="WSi-F2-O0O"/>
                         <outlet property="statusBarLabel" destination="QKf-aa-pMi" id="PCX-G2-kOh"/>
