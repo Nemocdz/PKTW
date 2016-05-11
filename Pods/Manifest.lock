@@ -2,7 +2,7 @@ PODS:
   - FXBlurView (1.6.4)
 
 DEPENDENCIES:
-  - FXBlurView (~> 1.6.4)
+  - FXBlurView
 
 SPEC CHECKSUMS:
   FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f

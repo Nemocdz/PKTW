@@ -9,6 +9,9 @@
 #import "EditingVC.h"
 #import "FXBlurView.h"
 
+static const int kMaxBlurLevel = 5;
+static const int kMaxAppLevel = 5;
+
 @interface EditingVC ()
 - (IBAction)showBlackStatusBar:(id)sender;
 - (IBAction)showBlackDock:(id)sender;
@@ -16,6 +19,9 @@
 - (IBAction)finish:(id)sender;
 - (IBAction)preview:(id)sender;
 - (IBAction)backgroundBlur:(id)sender;
+
+- (IBAction)changeBlur:(UIButton *)sender;
+- (IBAction)changePreview:(UIButton *)sender;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *blackStatusBar;
@@ -31,9 +37,19 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *contentViewHight;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-
+@property (strong, nonatomic) IBOutlet UIButton *previewUpBtn;
+@property (strong, nonatomic) IBOutlet UIButton *previewDownBtn;
+@property (strong, nonatomic) IBOutlet UIButton *blurUpBtn;
+@property (strong, nonatomic) IBOutlet UIButton *blurDownBtn;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *imageViewAspect;
 @property (strong, nonatomic) IBOutlet FXBlurView *blurView;
+@property (strong, nonatomic) IBOutlet UIImageView *apps2;
+@property (strong, nonatomic) IBOutlet UIImageView *apps3;
+@property (strong, nonatomic) IBOutlet UIImageView *apps4;
+@property (strong, nonatomic) IBOutlet UIImageView *apps5;
+
+@property (assign, nonatomic) int previewIndex;
+@property (assign, nonatomic) int blurIndex;
 
 @end
 
@@ -67,10 +83,11 @@
 //重新计算滑动范围和加入图片
 - (void)relayoutAndSetImage{
     CGSize imageSize = self.originalImage.size;
-    CGSize contentViewSize = self.contentView.frame.size;
+   // CGSize contentViewSize = self.contentView.frame.size;
+    CGSize scrollViewSize = self.scrollView.frame.size;
     
-    CGFloat imgaeHeight = imageSize.height / imageSize.width * contentViewSize.width;
-    CGFloat blackSpace = (contentViewSize.height - imgaeHeight);
+    CGFloat imgaeHeight = imageSize.height / imageSize.width * scrollViewSize.width;
+    CGFloat blackSpace = (scrollViewSize.height - imgaeHeight);
     CGFloat newHeight = blackSpace * 2 + imgaeHeight;
     
     self.scrollView.contentOffset = CGPointMake(0,blackSpace/2);
@@ -128,18 +145,68 @@
     self.previewBtn.selected = !self.previewBtn.selected;
     self.blackStatusBarBtn.hidden = !self.blackStatusBarBtn.hidden;
     self.blackDockBtn.hidden = !self.blackDockBtn.hidden;
+    self.previewUpBtn.hidden = !self.previewUpBtn.hidden;
+    self.previewDownBtn.hidden = !self.previewDownBtn.hidden;
     self.statusBarLabel.hidden = !self.statusBarLabel.hidden;
     self.dockLabel.hidden = !self.dockLabel.hidden;
     self.helpLabel.hidden = !self.helpLabel.hidden;
     self.apps.hidden = !self.apps.hidden;
+    NSLog(@"%d行app已显示",self.previewIndex+1);
+
 }
 
 //毛玻璃效果
 - (IBAction)backgroundBlur:(id)sender {
     self.backgroundBlurBtn.selected = !self.backgroundBlurBtn.selected;
+    self.blurUpBtn.hidden = !self.blurUpBtn.hidden;
+    self.blurDownBtn.hidden = !self.blurDownBtn.hidden;
     self.blurView.tintColor = [UIColor clearColor];
     self.blurView.blurRadius = 10.0f;
     self.blurView.hidden = !self.blurView.hidden;
-
+    NSLog(@"模糊%2f个像素",self.blurView.blurRadius);
 }
+
+//调整模糊程度
+- (IBAction)changeBlur:(UIButton *)sender {
+    if (sender.tag) {
+        self.blurIndex ++;
+        self.blurView.blurRadius += 5.0f;
+    }
+    else{
+        self.blurIndex --;
+        self.blurView.blurRadius -= 5.0f;
+    }
+    NSLog(@"模糊%2f个像素",self.blurView.blurRadius);
+    self.blurUpBtn.enabled = ((self.blurIndex +1) < kMaxBlurLevel);
+    self.blurDownBtn.enabled = ((self.blurIndex +1) > 1);
+}
+
+//调整app行数
+- (IBAction)changePreview:(UIButton *)sender {
+    if (sender.tag) {
+        self.previewIndex ++;
+    }
+    else{
+        self.previewIndex --;
+    }
+    switch (self.previewIndex - sender.tag) {
+        case 0:
+            self.apps2.hidden = !self.apps2.hidden;
+            break;
+        case 1:
+            self.apps3.hidden = !self.apps3.hidden;
+            break;
+        case 2:
+            self.apps4.hidden = !self.apps4.hidden;
+            break;
+        case 3:
+            self.apps5.hidden = !self.apps5.hidden;
+            break;
+
+    }
+    NSLog(@"%d行app已显示",self.previewIndex+1);
+    self.previewUpBtn.enabled = ((self.previewIndex +1) < kMaxAppLevel);
+    self.previewDownBtn.enabled = ((self.previewIndex +1) > 1);
+}
+
 @end
