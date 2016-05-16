@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7B06279383D7A58BC00DED49 /* libPods-PKTW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D15FCE933CCAB42F5221FAB2 /* libPods-PKTW.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		DA28D4CE1CEA327800D8B084 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA28D4CD1CEA327800D8B084 /* Assets.xcassets */; };
 		DA77FD611C8C731B005A9DCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA77FD601C8C731B005A9DCF /* main.m */; };
 		DA77FD641C8C731B005A9DCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA77FD631C8C731B005A9DCF /* AppDelegate.m */; };
 		DA77FD671C8C731B005A9DCF /* StartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA77FD661C8C731B005A9DCF /* StartVC.m */; };
 		DA77FD6A1C8C731B005A9DCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA77FD681C8C731B005A9DCF /* Main.storyboard */; };
-		DA77FD6C1C8C731B005A9DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA77FD6B1C8C731B005A9DCF /* Assets.xcassets */; };
 		DA77FD6F1C8C731B005A9DCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA77FD6D1C8C731B005A9DCF /* LaunchScreen.storyboard */; };
 		DA929ABB1CAC0F01009FC8DB /* EditingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA929ABA1CAC0F01009FC8DB /* EditingVC.m */; };
 /* End PBXBuildFile section */
@@ -22,6 +22,7 @@
 		1BC75C37E4E7598BDD918A47 /* Pods-PKTW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PKTW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PKTW/Pods-PKTW.debug.xcconfig"; sourceTree = "<group>"; };
 		25D6132CCBA9C15E88D6F339 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15FCE933CCAB42F5221FAB2 /* libPods-PKTW.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PKTW.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA28D4CD1CEA327800D8B084 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = pic.xcassets/Assets.xcassets; sourceTree = "<group>"; };
 		DA77FD5C1C8C731B005A9DCF /* PKTW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PKTW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA77FD601C8C731B005A9DCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA77FD621C8C731B005A9DCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		DA77FD651C8C731B005A9DCF /* StartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartVC.h; sourceTree = "<group>"; };
 		DA77FD661C8C731B005A9DCF /* StartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartVC.m; sourceTree = "<group>"; };
 		DA77FD691C8C731B005A9DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DA77FD6B1C8C731B005A9DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA77FD6E1C8C731B005A9DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA77FD701C8C731B005A9DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA929AB91CAC0F01009FC8DB /* EditingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingVC.h; sourceTree = "<group>"; };
@@ -96,7 +96,6 @@
 				DA929AB91CAC0F01009FC8DB /* EditingVC.h */,
 				DA929ABA1CAC0F01009FC8DB /* EditingVC.m */,
 				DA77FD681C8C731B005A9DCF /* Main.storyboard */,
-				DA77FD6B1C8C731B005A9DCF /* Assets.xcassets */,
 				DA77FD6D1C8C731B005A9DCF /* LaunchScreen.storyboard */,
 				DA77FD701C8C731B005A9DCF /* Info.plist */,
 				DA77FD5F1C8C731B005A9DCF /* Supporting Files */,
@@ -107,6 +106,7 @@
 		DA77FD5F1C8C731B005A9DCF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DA28D4CD1CEA327800D8B084 /* Assets.xcassets */,
 				DA77FD601C8C731B005A9DCF /* main.m */,
 			);
 			name = "Supporting Files";
@@ -174,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA77FD6F1C8C731B005A9DCF /* LaunchScreen.storyboard in Resources */,
-				DA77FD6C1C8C731B005A9DCF /* Assets.xcassets in Resources */,
+				DA28D4CE1CEA327800D8B084 /* Assets.xcassets in Resources */,
 				DA77FD6A1C8C731B005A9DCF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

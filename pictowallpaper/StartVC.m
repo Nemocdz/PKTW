@@ -7,6 +7,7 @@
 //
 
 #import "StartVC.h"
+#import "FXBlurView.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
@@ -14,12 +15,15 @@
 
 @interface StartVC ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
 }
+@property (strong, nonatomic) IBOutlet FXBlurView *blurView;
 @property (nonatomic,strong) UIImage *imageToSend;
 @end
 @implementation StartVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.blurView.tintColor = [UIColor clearColor];
+    self.blurView.blurRadius = 10.0f;
 }
 
 //状态栏变白

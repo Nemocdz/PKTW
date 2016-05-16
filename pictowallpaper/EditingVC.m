@@ -12,7 +12,7 @@
 static const int kMaxBlurLevel = 5;
 static const int kMaxAppLevel = 5;
 
-@interface EditingVC ()
+@interface EditingVC ()<UIImagePickerControllerDelegate>
 - (IBAction)showBlackStatusBar:(id)sender;
 - (IBAction)showBlackDock:(id)sender;
 - (IBAction)back:(id)sender;
@@ -47,9 +47,10 @@ static const int kMaxAppLevel = 5;
 @property (strong, nonatomic) IBOutlet UIImageView *apps3;
 @property (strong, nonatomic) IBOutlet UIImageView *apps4;
 @property (strong, nonatomic) IBOutlet UIImageView *apps5;
-
+@property (strong, nonatomic) IBOutlet UIView *drawView;
 @property (assign, nonatomic) int previewIndex;
 @property (assign, nonatomic) int blurIndex;
+@property (assign, nonatomic) float blackSpace;
 
 @end
 
@@ -87,10 +88,10 @@ static const int kMaxAppLevel = 5;
     CGSize scrollViewSize = self.scrollView.frame.size;
     
     CGFloat imgaeHeight = imageSize.height / imageSize.width * scrollViewSize.width;
-    CGFloat blackSpace = (scrollViewSize.height - imgaeHeight);
-    CGFloat newHeight = blackSpace * 2 + imgaeHeight;
+    self.blackSpace = (scrollViewSize.height - imgaeHeight);
+    CGFloat newHeight = self.blackSpace * 2 + imgaeHeight;
     
-    self.scrollView.contentOffset = CGPointMake(0,blackSpace/2);
+    self.scrollView.contentOffset = CGPointMake(0,self.blackSpace/2);
     self.scrollView.showsVerticalScrollIndicator = NO;
  //   self.scrollView.bounces = NO;
     self.contentViewHight.constant = newHeight;
@@ -137,7 +138,11 @@ static const int kMaxAppLevel = 5;
 
 //完成
 - (IBAction)finish:(id)sender {
-
+    UIGraphicsBeginImageContextWithOptions(self.drawView.bounds.size, NO, 0.0);
+    [self.drawView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
 //预览
@@ -163,7 +168,7 @@ static const int kMaxAppLevel = 5;
     self.blurView.tintColor = [UIColor clearColor];
     self.blurView.blurRadius = 10.0f;
     self.blurView.hidden = !self.blurView.hidden;
-    NSLog(@"模糊%2f个像素",self.blurView.blurRadius);
+    NSLog(@"模糊%.2f个像素",self.blurView.blurRadius);
 }
 
 //调整模糊程度
@@ -176,7 +181,7 @@ static const int kMaxAppLevel = 5;
         self.blurIndex --;
         self.blurView.blurRadius -= 5.0f;
     }
-    NSLog(@"模糊%2f个像素",self.blurView.blurRadius);
+    NSLog(@"模糊%.2f个像素",self.blurView.blurRadius);
     self.blurUpBtn.enabled = ((self.blurIndex +1) < kMaxBlurLevel);
     self.blurDownBtn.enabled = ((self.blurIndex +1) > 1);
 }
@@ -209,4 +214,21 @@ static const int kMaxAppLevel = 5;
     self.previewDownBtn.enabled = ((self.previewIndex +1) > 1);
 }
 
+//保存壁纸
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    NSString *string;
+    if (error) {
+        string = @"保存失败，请检查是否拥有相关的权限";
+        NSLog(@"%@",string);
+
+    }
+    else{
+        string = @"保存成功";
+        NSLog(@"%@",string);
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:string message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *canselAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:canselAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 @end
