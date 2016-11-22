@@ -12,7 +12,7 @@
 static const int kMaxBlurLevel = 5;
 static const int kMaxAppLevel = 5;
 
-@interface EditingVC ()<UIImagePickerControllerDelegate>
+@interface EditingVC ()
 - (IBAction)showBlackStatusBar:(id)sender;
 - (IBAction)showBlackDock:(id)sender;
 - (IBAction)back:(id)sender;
@@ -62,6 +62,7 @@ static const int kMaxAppLevel = 5;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.imageView setImage:self.image];
 }
 
 
@@ -76,15 +77,11 @@ static const int kMaxAppLevel = 5;
     return NO;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 //重新计算滑动范围和加入图片
 - (void)relayoutAndSetImage{
-    CGSize imageSize = self.originalImage.size;
-   // CGSize contentViewSize = self.contentView.frame.size;
+
+    CGSize imageSize = self.image.size;
     CGSize scrollViewSize = self.scrollView.frame.size;
     
     CGFloat imgaeHeight = imageSize.height / imageSize.width * scrollViewSize.width;
@@ -93,7 +90,6 @@ static const int kMaxAppLevel = 5;
     
     self.scrollView.contentOffset = CGPointMake(0,self.blackSpace/2);
     self.scrollView.showsVerticalScrollIndicator = NO;
- //   self.scrollView.bounces = NO;
     self.contentViewHight.constant = newHeight;
     self.imageViewAspect.constant = imageSize.height/imageSize.width;
 
@@ -103,7 +99,6 @@ static const int kMaxAppLevel = 5;
     [self.imageView setNeedsLayout];
     [self.contentView layoutIfNeeded];
     [self.imageView layoutIfNeeded];
-    [self.imageView setImage:self.originalImage];
 }
 
 

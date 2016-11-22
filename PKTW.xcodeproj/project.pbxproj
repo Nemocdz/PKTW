@@ -13,7 +13,6 @@
 		DA77FD641C8C731B005A9DCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA77FD631C8C731B005A9DCF /* AppDelegate.m */; };
 		DA77FD671C8C731B005A9DCF /* StartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA77FD661C8C731B005A9DCF /* StartVC.m */; };
 		DA77FD6A1C8C731B005A9DCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA77FD681C8C731B005A9DCF /* Main.storyboard */; };
-		DA77FD6F1C8C731B005A9DCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA77FD6D1C8C731B005A9DCF /* LaunchScreen.storyboard */; };
 		DA929ABB1CAC0F01009FC8DB /* EditingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA929ABA1CAC0F01009FC8DB /* EditingVC.m */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		DA77FD651C8C731B005A9DCF /* StartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartVC.h; sourceTree = "<group>"; };
 		DA77FD661C8C731B005A9DCF /* StartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartVC.m; sourceTree = "<group>"; };
 		DA77FD691C8C731B005A9DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DA77FD6E1C8C731B005A9DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA77FD701C8C731B005A9DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA929AB91CAC0F01009FC8DB /* EditingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingVC.h; sourceTree = "<group>"; };
 		DA929ABA1CAC0F01009FC8DB /* EditingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingVC.m; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				DA929AB91CAC0F01009FC8DB /* EditingVC.h */,
 				DA929ABA1CAC0F01009FC8DB /* EditingVC.m */,
 				DA77FD681C8C731B005A9DCF /* Main.storyboard */,
-				DA77FD6D1C8C731B005A9DCF /* LaunchScreen.storyboard */,
 				DA77FD701C8C731B005A9DCF /* Info.plist */,
 				DA77FD5F1C8C731B005A9DCF /* Supporting Files */,
 			);
@@ -147,6 +144,11 @@
 					DA77FD5B1C8C731B005A9DCF = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 8HQ2P3SCVF;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -173,7 +175,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA77FD6F1C8C731B005A9DCF /* LaunchScreen.storyboard in Resources */,
 				DA28D4CE1CEA327800D8B084 /* Assets.xcassets in Resources */,
 				DA77FD6A1C8C731B005A9DCF /* Main.storyboard in Resources */,
 			);
@@ -250,14 +251,6 @@
 				DA77FD691C8C731B005A9DCF /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DA77FD6D1C8C731B005A9DCF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA77FD6E1C8C731B005A9DCF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -10,6 +10,6 @@
 
 @interface EditingVC : UIViewController
 
-@property (nonatomic,copy) UIImage *originalImage;
+@property (nonatomic,strong) UIImage *image;
 
 @end

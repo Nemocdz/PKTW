@@ -31,13 +31,12 @@
     return UIStatusBarStyleLightContent;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
+
 
 //相机按钮
 - (IBAction)openCamera:(id)sender {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
         UIImagePickerController *picker = [[UIImagePickerController alloc]init];
         picker.delegate = self;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -53,25 +52,27 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:picker animated:YES completion:nil];
+        [self presentViewController:picker animated:YES completion:nil];
 }
 
 //获取照片，跳转VC
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info{
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
     if(picker.sourceType == UIImagePickerControllerSourceTypeCamera){
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
     }
-    [picker dismissViewControllerAnimated:NO completion:nil];
-    self.imageToSend = image;
-    [self performSegueWithIdentifier:@"toEditVC" sender:self];
+        self.imageToSend = image;
+    [picker dismissViewControllerAnimated:NO completion:^{
+       [self performSegueWithIdentifier:@"toEditVC" sender:self];
+    }];
+
     NSLog(@"获取照片");
 }
 
 //segue传值
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     id VC = segue.destinationViewController;
-    [VC setValue:self.imageToSend forKey:@"originalImage"];
+    [VC setValue:self.imageToSend forKey:@"image"];
 }
 
 //保存照片
