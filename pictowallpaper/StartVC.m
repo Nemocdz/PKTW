@@ -7,23 +7,17 @@
 //
 
 #import "StartVC.h"
-#import "FXBlurView.h"
-#import <MobileCoreServices/MobileCoreServices.h>
-#import <AVFoundation/AVFoundation.h>
-#import <MediaPlayer/MediaPlayer.h>
+#import "CDZImagePickerViewController.h"
+#import "CDZImagePickerActionsItem.h"
 
-
-@interface StartVC ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
-}
-@property (strong, nonatomic) IBOutlet FXBlurView *blurView;
+@interface StartVC ()
+@property (strong, nonatomic) UIView *backgroundView;
 @property (nonatomic,strong) UIImage *imageToSend;
 @end
 @implementation StartVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.blurView.tintColor = [UIColor clearColor];
-    self.blurView.blurRadius = 10.0f;
 }
 
 //状态栏变白
@@ -35,39 +29,23 @@
 
 //相机按钮
 - (IBAction)openCamera:(id)sender {
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        
-        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-        picker.delegate = self;
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:picker animated:YES completion:nil];
-    }
-    else{
-        NSLog(@"设备没有摄像头");
-    }
-}
-
-//相册按钮
-- (IBAction)openGallery:(id)sender {
-    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-    picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:picker animated:YES completion:nil];
-}
-
-//获取照片，跳转VC
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info{
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
-    if(picker.sourceType == UIImagePickerControllerSourceTypeCamera){
-    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
-    }
-        self.imageToSend = image;
-    [picker dismissViewControllerAnimated:NO completion:^{
-       [self performSegueWithIdentifier:@"toEditVC" sender:self];
+    [self.view addSubview:self.backgroundView];
+    CDZImagePickerViewController *imagePickerController = [[CDZImagePickerViewController alloc]init];
+    imagePickerController.actionArray = [NSMutableArray arrayWithObjects:
+                                         [[CDZImagePickerActionsItem alloc]initWithTitle:@"打开设备上的图片" withActionType:CDZImagePickerLibraryAction withImage:[UIImage imageNamed:@"phone-icon.png"]],
+                                         [[CDZImagePickerActionsItem alloc]initWithTitle:@"相机" withActionType:CDZImagePickerCameraAction withImage:[UIImage imageNamed:@"camera-icon.png"]],
+                                         [[CDZImagePickerActionsItem alloc]initWithTitle:@"打开最新图片" withActionType:CDZImagePickerRecentAction withImage:[UIImage imageNamed:@"clock-icon.png"]],
+                                         nil];
+    [imagePickerController openPickerInController:self withImageBlock:^(UIImage *image) {
+        [self.backgroundView removeFromSuperview];
+        if (image) { //检查是否有照片
+            self.imageToSend = image;
+            [self performSegueWithIdentifier:@"toEditVC" sender:self];
+        }
     }];
-
-    NSLog(@"获取照片");
 }
+
+
 
 //segue传值
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -75,13 +53,14 @@
     [VC setValue:self.imageToSend forKey:@"image"];
 }
 
-//保存照片
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
-    if(!error){
-        NSLog(@"照片保存成功");
-    }else{
-        NSLog(@"照片保存失败");
+- (UIView *)backgroundView{
+    if (!_backgroundView) {
+        _backgroundView = [[UIView alloc]initWithFrame:self.view.bounds];
+        _backgroundView.backgroundColor = BACKGROUND_BLACK_COLOR;
     }
+    return _backgroundView;
 }
+
+
 
 @end

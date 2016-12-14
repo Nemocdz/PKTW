@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7B06279383D7A58BC00DED49 /* libPods-PKTW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D15FCE933CCAB42F5221FAB2 /* libPods-PKTW.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		DA21F9331E019A53009C95CD /* CDZImagePickerActionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F9271E019A53009C95CD /* CDZImagePickerActionsCell.m */; };
+		DA21F9341E019A53009C95CD /* CDZImagePickerActionsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F9291E019A53009C95CD /* CDZImagePickerActionsDataSource.m */; };
+		DA21F9351E019A53009C95CD /* CDZImagePickerActionsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F92B1E019A53009C95CD /* CDZImagePickerActionsItem.m */; };
+		DA21F9361E019A53009C95CD /* CDZImagePickerPhotosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F92D1E019A53009C95CD /* CDZImagePickerPhotosCell.m */; };
+		DA21F9371E019A53009C95CD /* CDZImagePickerPhotosDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F92F1E019A53009C95CD /* CDZImagePickerPhotosDataSource.m */; };
+		DA21F9381E019A53009C95CD /* CDZImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA21F9311E019A53009C95CD /* CDZImagePickerViewController.m */; };
 		DA28D4CE1CEA327800D8B084 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA28D4CD1CEA327800D8B084 /* Assets.xcassets */; };
 		DA77FD611C8C731B005A9DCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA77FD601C8C731B005A9DCF /* main.m */; };
 		DA77FD641C8C731B005A9DCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA77FD631C8C731B005A9DCF /* AppDelegate.m */; };
@@ -21,6 +27,19 @@
 		1BC75C37E4E7598BDD918A47 /* Pods-PKTW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PKTW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PKTW/Pods-PKTW.debug.xcconfig"; sourceTree = "<group>"; };
 		25D6132CCBA9C15E88D6F339 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15FCE933CCAB42F5221FAB2 /* libPods-PKTW.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PKTW.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA21F9261E019A53009C95CD /* CDZImagePickerActionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDZImagePickerActionsCell.h; sourceTree = "<group>"; };
+		DA21F9271E019A53009C95CD /* CDZImagePickerActionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDZImagePickerActionsCell.m; sourceTree = "<group>"; };
+		DA21F9281E019A53009C95CD /* CDZImagePickerActionsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDZImagePickerActionsDataSource.h; sourceTree = "<group>"; };
+		DA21F9291E019A53009C95CD /* CDZImagePickerActionsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDZImagePickerActionsDataSource.m; sourceTree = "<group>"; };
+		DA21F92A1E019A53009C95CD /* CDZImagePickerActionsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDZImagePickerActionsItem.h; sourceTree = "<group>"; };
+		DA21F92B1E019A53009C95CD /* CDZImagePickerActionsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDZImagePickerActionsItem.m; sourceTree = "<group>"; };
+		DA21F92C1E019A53009C95CD /* CDZImagePickerPhotosCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDZImagePickerPhotosCell.h; sourceTree = "<group>"; };
+		DA21F92D1E019A53009C95CD /* CDZImagePickerPhotosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDZImagePickerPhotosCell.m; sourceTree = "<group>"; };
+		DA21F92E1E019A53009C95CD /* CDZImagePickerPhotosDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDZImagePickerPhotosDataSource.h; sourceTree = "<group>"; };
+		DA21F92F1E019A53009C95CD /* CDZImagePickerPhotosDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDZImagePickerPhotosDataSource.m; sourceTree = "<group>"; };
+		DA21F9301E019A53009C95CD /* CDZImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDZImagePickerViewController.h; sourceTree = "<group>"; };
+		DA21F9311E019A53009C95CD /* CDZImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDZImagePickerViewController.m; sourceTree = "<group>"; };
+		DA21F9321E019A53009C95CD /* CDZImagePickerConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDZImagePickerConstant.h; path = pictowallpaper/CDZImagePickerConstant.h; sourceTree = SOURCE_ROOT; };
 		DA28D4CD1CEA327800D8B084 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = pic.xcassets/Assets.xcassets; sourceTree = "<group>"; };
 		DA77FD5C1C8C731B005A9DCF /* PKTW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PKTW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA77FD601C8C731B005A9DCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,6 +85,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA21F9251E019A53009C95CD /* CDZImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				DA21F9261E019A53009C95CD /* CDZImagePickerActionsCell.h */,
+				DA21F9271E019A53009C95CD /* CDZImagePickerActionsCell.m */,
+				DA21F9281E019A53009C95CD /* CDZImagePickerActionsDataSource.h */,
+				DA21F9291E019A53009C95CD /* CDZImagePickerActionsDataSource.m */,
+				DA21F92A1E019A53009C95CD /* CDZImagePickerActionsItem.h */,
+				DA21F92B1E019A53009C95CD /* CDZImagePickerActionsItem.m */,
+				DA21F92C1E019A53009C95CD /* CDZImagePickerPhotosCell.h */,
+				DA21F92D1E019A53009C95CD /* CDZImagePickerPhotosCell.m */,
+				DA21F92E1E019A53009C95CD /* CDZImagePickerPhotosDataSource.h */,
+				DA21F92F1E019A53009C95CD /* CDZImagePickerPhotosDataSource.m */,
+				DA21F9301E019A53009C95CD /* CDZImagePickerViewController.h */,
+				DA21F9311E019A53009C95CD /* CDZImagePickerViewController.m */,
+				DA21F9321E019A53009C95CD /* CDZImagePickerConstant.h */,
+			);
+			path = CDZImagePicker;
+			sourceTree = "<group>";
+		};
 		DA77FD531C8C731B005A9DCF = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +126,7 @@
 		DA77FD5E1C8C731B005A9DCF /* pictowallpaper */ = {
 			isa = PBXGroup;
 			children = (
+				DA21F9251E019A53009C95CD /* CDZImagePicker */,
 				DA77FD621C8C731B005A9DCF /* AppDelegate.h */,
 				DA77FD631C8C731B005A9DCF /* AppDelegate.m */,
 				DA77FD651C8C731B005A9DCF /* StartVC.h */,
@@ -138,15 +178,16 @@
 		DA77FD541C8C731B005A9DCF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Nemocdz;
 				TargetAttributes = {
 					DA77FD5B1C8C731B005A9DCF = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 8HQ2P3SCVF;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -236,8 +277,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA77FD671C8C731B005A9DCF /* StartVC.m in Sources */,
+				DA21F9331E019A53009C95CD /* CDZImagePickerActionsCell.m in Sources */,
 				DA77FD641C8C731B005A9DCF /* AppDelegate.m in Sources */,
 				DA77FD611C8C731B005A9DCF /* main.m in Sources */,
+				DA21F9361E019A53009C95CD /* CDZImagePickerPhotosCell.m in Sources */,
+				DA21F9341E019A53009C95CD /* CDZImagePickerActionsDataSource.m in Sources */,
+				DA21F9371E019A53009C95CD /* CDZImagePickerPhotosDataSource.m in Sources */,
+				DA21F9351E019A53009C95CD /* CDZImagePickerActionsItem.m in Sources */,
+				DA21F9381E019A53009C95CD /* CDZImagePickerViewController.m in Sources */,
 				DA929ABB1CAC0F01009FC8DB /* EditingVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,8 +316,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -292,7 +341,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -312,8 +361,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -329,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -343,6 +394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8HQ2P3SCVF;
 				INFOPLIST_FILE = pictowallpaper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nemocdz.pktw;
@@ -359,6 +411,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8HQ2P3SCVF;
 				INFOPLIST_FILE = pictowallpaper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nemocdz.pktw;
