@@ -8,7 +8,6 @@
 
 #import "StartVC.h"
 #import "CDZImagePickerViewController.h"
-#import "CDZImagePickerActionsItem.h"
 
 @interface StartVC ()
 @property (strong, nonatomic) UIView *backgroundView;
@@ -31,11 +30,6 @@
 - (IBAction)openCamera:(id)sender {
     [self.view addSubview:self.backgroundView];
     CDZImagePickerViewController *imagePickerController = [[CDZImagePickerViewController alloc]init];
-    imagePickerController.actionArray = [NSMutableArray arrayWithObjects:
-                                         [[CDZImagePickerActionsItem alloc]initWithTitle:@"打开设备上的图片" withActionType:CDZImagePickerLibraryAction withImage:[UIImage imageNamed:@"phone-icon.png"]],
-                                         [[CDZImagePickerActionsItem alloc]initWithTitle:@"相机" withActionType:CDZImagePickerCameraAction withImage:[UIImage imageNamed:@"camera-icon.png"]],
-                                         [[CDZImagePickerActionsItem alloc]initWithTitle:@"打开最新图片" withActionType:CDZImagePickerRecentAction withImage:[UIImage imageNamed:@"clock-icon.png"]],
-                                         nil];
     [imagePickerController openPickerInController:self withImageBlock:^(UIImage *image) {
         [self.backgroundView removeFromSuperview];
         if (image) { //检查是否有照片
